@@ -1,0 +1,30 @@
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8' />
+    <style>
+        .flex {
+            display: flex;
+            padding: 0 30px;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .border {
+            border: 1px solid black
+        }
+    </style>
+</head>
+
+<body>
+    <div class='h-20 bg-color-gray flex justify-between'
+        style='padding-bottom: 10px; background-color: #FAFAFA; font-size: 10px'>
+        {{page}}
+        of
+        {{total}}
+    </div>
+</body>
+
+</html>
