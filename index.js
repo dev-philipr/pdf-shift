@@ -17,6 +17,11 @@ require('dotenv').config()
     return fs.readFileSync(filePath, 'utf8');
 }
 
+const sectionPartial = getTemplate('_section');
+Handlebars.registerPartial('section', sectionPartial);
+const patientInfoPartial = getTemplate('_patientInfo');
+Handlebars.registerPartial('patientInfo', patientInfoPartial);
+
 app.get('/', async (req, res) => {
         // build content
         const header = getTemplate('_header');

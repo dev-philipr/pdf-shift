@@ -1,52 +1,52 @@
-<div style="margin-bottom: 15px; padding: 0 5px;">
-  <div style="background-color: #f8f8f8; padding: 3px 8px; font-size: 10px; font-weight: normal; text-transform: uppercase; border-bottom: 1px solid #ddd;">
+  <div style="margin-bottom: 10px; padding: 0px 5px;">
+  <div style="background-color: #f8f8f8; padding: 3px 25px; font-size: 10px; font-weight: normal; text-transform: uppercase;">
     Patient
   </div>
-  
+
   <table style="width: 100%; border-collapse: collapse; margin-top: 4px;">
     <tr>
-      <td style="padding: 5px 8px; width: 25%; vertical-align: top;">
-        <div style="font-size: 10px; color: #666; padding-bottom: 2px;">HI Claim Number</div>
+      <td style="padding: 5px 25px; width: 25%; vertical-align: top;">
+        <div style="font-size: 10px; color: #323232; padding-bottom: 2px;">HI Claim Number</div>
         <div style="font-size: 11px;">{{#if patient.hiClaimNumber}}{{patient.hiClaimNumber}}{{else}}N/A{{/if}}</div>
       </td>
-      <td style="padding: 5px 8px; width: 25%; vertical-align: top;">
-        <div style="font-size: 10px; color: #666; padding-bottom: 2px;">Start of care date</div>
+      <td style="padding: 5px 25px; width: 25%; vertical-align: top;">
+        <div style="font-size: 10px; color: #323232; padding-bottom: 2px;">Start of care date</div>
         <div style="font-size: 11px;">{{#if patient.startOfCareDate}}{{patient.startOfCareDate}}{{else}}N/A{{/if}}</div>
       </td>
       <td style="padding: 5px 8px; width: 25%; vertical-align: top;">
-        <div style="font-size: 10px; color: #666; padding-bottom: 2px;">Certification period</div>
+        <div style="font-size: 10px; color: #323232; padding-bottom: 2px;">Certification period</div>
         <div style="font-size: 11px;">{{#if patient.certificationPeriodStart}}{{patient.certificationPeriodStart}} - {{patient.certificationPeriodEnd}}{{else}}N/A{{/if}}</div>
       </td>
       <td style="padding: 5px 8px; width: 25%; vertical-align: top;">
-        <div style="font-size: 10px; color: #666; padding-bottom: 2px;">Provider number</div>
+        <div style="font-size: 10px; color: #323232; padding-bottom: 2px;">Provider number</div>
         <div style="font-size: 11px;">{{#if patient.providerNumber}}{{patient.providerNumber}}{{else}}N/A{{/if}}</div>
       </td>
     </tr>
   </table>
-  
+
   <table style="width: 100%; border-collapse: collapse; margin-top: 4px;">
     <tr>
-      <td style="padding: 5px 8px; width: 50%; vertical-align: top;">
-        <div style="font-size: 10px; color: #666; padding-bottom: 2px;">Patient name & address</div>
+      <td style="padding: 5px 25px; width: 50%; vertical-align: top;">
+        <div style="font-size: 10px; color: #323232; padding-bottom: 2px;">Patient name & address</div>
         <div style="font-size: 11px;">{{#if patient.name}}{{patient.name}}{{else}}N/A{{/if}}</div>
         <div style="font-size: 11px;">{{#if patient.address}}{{patient.address}}{{else}}N/A{{/if}}</div>
       </td>
       <td style="padding: 5px 8px; width: 50%; vertical-align: top;">
-        <div style="font-size: 10px; color: #666; padding-bottom: 2px;">Provider name & address</div>
+        <div style="font-size: 10px; color: #323232; padding-bottom: 2px;">Provider name & address</div>
         <div style="font-size: 11px;">{{#if patient.providerName}}{{patient.providerName}}{{else}}No assigned primary doctor{{/if}}</div>
         <div style="font-size: 11px;">{{#if patient.providerAddress}}{{patient.providerAddress}}{{else}}{{/if}}</div>
       </td>
     </tr>
   </table>
-  
+
   <table style="width: 100%; border-collapse: collapse; margin-top: 4px;">
     <tr>
-      <td style="padding: 5px 8px; width: 50%; vertical-align: top;">
-        <div style="font-size: 10px; color: #666; padding-bottom: 2px;">DOB</div>
+      <td style="padding: 5px 25px; width: 50%; vertical-align: top;">
+        <div style="font-size: 10px; color: #323232; padding-bottom: 2px;">DOB</div>
         <div style="font-size: 11px;">{{#if patient.dob}}{{patient.dob}}{{#if patient.age}} (age {{patient.age}} years){{/if}}{{else}}N/A{{/if}}</div>
       </td>
       <td style="padding: 5px 8px; width: 50%; vertical-align: top;">
-        <div style="font-size: 10px; color: #666; padding-bottom: 2px;">Sex</div>
+        <div style="font-size: 10px; color: #323232; padding-bottom: 2px;">Sex</div>
         <div style="font-size: 11px;">{{#if patient.gender}}{{patient.gender}}{{else}}N/A{{/if}}</div>
       </td>
     </tr>

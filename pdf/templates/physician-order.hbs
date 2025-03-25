@@ -1,37 +1,25 @@
-<body class='text-xs'>
-<div style="margin-bottom: 15px; padding: 0 5px;">
-  <div style="background-color: #f8f8f8; padding: 5px 25px; font-size: 10px; font-weight: normal; text-transform: uppercase;">
-    subject
-  </div>
-   <div style="padding: 5px 25px;font-size: 11px">
-    {{#if subject}}{{subject}}{{else}}Subject content goes here{{/if}}
-  </div>
-</div>
-
-<div style="margin-bottom: 15px; padding: 0 5px;">
-  <div style="background-color: #f8f8f8; padding: 5px 25px; font-size: 10px; font-weight: normal; text-transform: uppercase;">
-    Description
-  </div>
-  <div style="padding: 5px 25px;font-size: 11px">
-    {{#if description}}{{description}}{{else}}Description content goes here{{/if}}
-  </div>
-</div>
-
-<div style="margin-bottom: 15px; padding: 0 5px;">
-  <div style="background-color: #f8f8f8; padding: 5px 25px; font-size: 10px; font-weight: normal; text-transform: uppercase; border-bottom: 0px;">
-    Prior Corresponding and Coordination
-  </div>
-  <div style="padding: 5px 25px;font-size: 11px">
-    {{#if priorCorresponding}}{{priorCorresponding}}{{else}}Prior corresponding and coordination content goes here{{/if}}
-  </div>
-</div>
-
-<div style="margin-bottom: 15px; padding: 0 5px;">
-  <div style="background-color: #f8f8f8; padding: 5px 25px; font-size: 10px; font-weight: normal; text-transform: uppercase;">
-    Signature
-  </div>
-  <div style="padding: 5px 25px;font-size: 11px">
-    {{#if physicianSignature}}{{physicianSignature}}{{else}}Physician's Signature and date go here{{/if}}
-  </div>
-</div>  
+<body class="text-xs">
+  {{> section 
+    title="subject" 
+    content=subject 
+    defaultContent="Subject content goes here"
+  }}
+  
+  {{> section 
+    title="Description" 
+    content=description 
+    defaultContent="Description content goes here"
+  }}
+  
+  {{> section 
+    title="Prior Corresponding and Coordination" 
+    content=priorCorresponding 
+    defaultContent="Prior corresponding and coordination content goes here"
+  }}
+  
+  {{> section 
+    title="Signature" 
+    content=physicianSignature 
+    defaultContent="Physician's Signature and date go here"
+  }}
 </body>
