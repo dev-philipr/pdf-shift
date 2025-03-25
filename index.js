@@ -5,9 +5,10 @@ const Handlebars = require('handlebars')
 const fetch = require('node-fetch')
 const app = express()
 const port = 2020
+require('dotenv').config()
 
  const getTemplate = (template) => {
-    const filePath = `/Users/philip/pdf-shift-test/pdf/templates/${template}.hbs` // NOTE: Change
+    const filePath = `C:/Users/imran/pdf-shift/pdf/templates/${template}.hbs` // NOTE: Change
 
     if (!fs.existsSync(filePath)) {
         throw new Error(`${template} template doesn't exist`);
@@ -26,10 +27,10 @@ app.get('/', async (req, res) => {
         const html = Handlebars.compile(body)({ body: bodyCompiled });
 
         // send html to pdf shift to be converted to pdf
-        const response = await fetch('https://api.pdfshift.io/v3/convert/pdf', {
+        const response = await fetch(process.env.PDFSHIFT_API_URL, {
             method: 'POST',
             headers: {
-                Authorization: 'Basic ' + Buffer.from(`api:sk_0f39e1c659acfd6f0bb7bf709fb27b8783de3237`).toString('base64'),
+                Authorization: 'Basic ' + Buffer.from(`api:${process.env.PDFSHIFT_API_KEY}`).toString('base64'),
                 'Content-type': 'application/json',
             },
             body: JSON.stringify({
@@ -45,8 +46,9 @@ app.get('/', async (req, res) => {
                     start_at: 1,
                 },
                 margin: {
-                    right: 40,
-                    left: 40,
+                    right: 0,
+                    left: 0,
+                    top: 8
                 },
                 landscape: false,
                 use_print: false,
