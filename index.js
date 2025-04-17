@@ -21,6 +21,10 @@ const sectionPartial = getTemplate('_section');
 Handlebars.registerPartial('section', sectionPartial);
 const patientInfoPartial = getTemplate('_patientInfo');
 Handlebars.registerPartial('patientInfo', patientInfoPartial);
+const medicationPartial = getTemplate('_medication');
+Handlebars.registerPartial('medication', medicationPartial);
+const orderPartial = getTemplate('_order');
+Handlebars.registerPartial('order', orderPartial);
 
 app.get('/', async (req, res) => {
         // build content

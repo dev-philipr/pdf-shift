@@ -1,25 +1,530 @@
-<body class="text-xs">
-  {{> section 
-    title="subject" 
-    content=subject 
-    defaultContent="Subject content goes here"
-  }}
+{{!-- Healthcare Form Template --}}
+
+<body class="text-sm">
+  <div colspan="4" class="bg-gray-100 py-1 px-6 text-sm uppercase">Medical</div>
+ <div class="px-[25px] py-[5px] text-[11px]">
+  <div class="py-[0px] text-sm text-gray-600">DIAGNOSIS</div>
+  <div class="text-sm">Principal diagnosis</div>
+  <div class="pb-1 text-[11px]">I21.4</div>
   
-  {{> section 
-    title="Description" 
-    content=description 
-    defaultContent="Description content goes here"
-  }}
+  <div class="text-sm text-gray-600 pt-1">Other diagnosis</div>
+  <div class="text-[11px]">I10, R00.2, R06.02, E11.9, S82.92XA, K58.9, R05</div>
   
-  {{> section 
-    title="Prior Corresponding and Coordination" 
-    content=priorCorresponding 
-    defaultContent="Prior corresponding and coordination content goes here"
-  }}
+  <table class="w-full mt-3">
+    <tbody>
+      <tr>
+        <td class="w-1/2 pr-2">
+          <hr class="mb-1 border-gray-200" style="width: 95%;">
+          <div class="py-1 text-sm font-medium">FUNCTIONAL ABILITIES</div>
+          <div class="text-sm text-gray-600">Prognosis</div>
+          <div class="text-[11px]">Guarded</div>
+          <div class="text-sm text-gray-600 pt-1">Rehab potential</div>
+          <div class="text-[11px]">Patient has Fair potential to remain safely in the home independently when discharged from the agency</div>
+          <div class="text-[11px]">Patient has Fair potential to remain safely in the home with assistance when discharged from the agency.</div>
+        </td>
+        <td class="w-1/2 pl-2 align-top">
+          <hr class="mb-1 border-gray-200" style="width: 95%;">
+          <div class="font-medium py-1 text-sm">FUNCTIONAL LIMITATIONS</div>
+          <div class="text-[11px]">Bowel/bladder (incontinence), Ambulation, Pain, Impaired Activity Tolerance, Decreased safety awareness, Hearing Deficit</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
   
-  {{> section 
-    title="Signature" 
-    content=physicianSignature 
-    defaultContent="Physician's Signature and date go here"
-  }}
+  <table class="w-full mt-3">
+    <tbody>
+      <tr>
+        <td class="w-1/2 pr-2 align-top">
+          <hr class="mb-1 border-gray-200" style="width: 95%;">
+          <div class="font-medium py-1 text-sm">ACTIVITIES PERMITTED</div>
+          <div class="text-[11px]">Up as Tolerated, Prescribed Exercises, Partial Weight Bearing(Right), Use Crutches, Use Walker, Pain, Impaired activity tolerance, Decreased safety awareness</div>
+        </td>
+        <td class="w-1/2 pl-2 align-top">
+          <hr class="mb-1 border-gray-200" style="width: 95%;">
+          <div class="font-medium py-1 text-sm">HOSPITALIZATION</div>
+          <div class="text-[11px]">Unstable clinical condition, rapidly fluctuating blood sugars, exacerbation of heart failure symptoms, Complex disease process, History of nonadherence with medical regimen, Polypharmacy and inability to manage meds correctly, Unsafe ambulation, generalized weakness</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <table class="w-full mt-3">
+    <tbody>
+      <tr>
+        <td class="w-1/2 pr-2 align-top">
+          <hr class="mb-1 border-gray-200" style="width: 95%;">
+          <div class="font-medium py-1 text-sm">MENTAL STATUS</div>
+          <div class="text-[11px]">Alert, Difficulty Coping w/ Altered Health Status, Anxious, Forgetful</div>
+        </td>
+        <td class="w-1/2 pl-2 align-top">
+          <hr class="mb-1 border-gray-200" style="width: 95%;">
+          <div class="font-medium py-1 text-sm">SAFETY</div>
+          <div class="text-[11px]">Transfer with assistance, Ambulate with assistance/supervision(Uneven surfaces), Use assistive device with mobility, Dispose of dressings properly, Use adequate lighting and night light, Clear walking areas, Install/change batteries in smoke detector</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <hr class="mt-3 mb-1 border-gray-200">
+  <div class="font-medium py-1 text-sm">NUTRITION AND ALLERGIES</div>
+  <table class="w-full">
+    <tbody>
+      <tr>
+        <td class="w-1/2 pr-2 align-top">
+          <div class="text-sm text-gray-600">Nutritional Requirements</div>
+          <div class="text-[11px]">Cardiac diet: Low fat, low cholesterol, sodium controlled, Diabetic diet, carbohydrate controlled</div>
+        </td>
+        <td class="w-1/2 pl-2 align-top">
+          <div class="text-sm text-gray-600">Allergies</div>
+          <div class="text-[11px]">Seasonal/environmental</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+ <div>
+  <table class="w-full">
+    <thead>
+      <tr>
+        <td colspan="4" class="bg-gray-100 py-1 px-6 text-sm uppercase">Nurse/Therapist's Signature</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="pt-1 pl-6" width="50%">
+          <div class="text-sm text-gray-600">Nurse's Signature and Date of Verbal SOC Where Applicable:</div>
+          {{#if poc.SIGNED_STATUS_TEXT}}
+            <div width="50%" class="text-[11px]">{{poc.SIGNED_STATUS_TEXT}}</div>
+            <div width="50%" class="text-[11px]">{{poc.SIGNED_DATE}}</div>
+          {{/if}}
+        </td>
+        <td class="pt-1" width="50%">
+          <div class="text-sm text-gray-600">Date HHA Received Signed POC</div>
+          <div class="text-[11px]">{{#if poc.PHYSICIAN_SIGN_DATE}}{{formatDate poc.PHYSICIAN_SIGN_DATE}}{{/if}}</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="mt-4">
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td class="pt-1 pl-6" width="50%">
+            <div class="text-sm text-gray-600">Physician/PA/NP/CNS Name and Address</div>
+            <div class="text-[11px]">
+              <div>{{poc.DOCTOR}}</div>
+              <div>
+                {{poc.physician.ADDRESS}} {{poc.physician.CITY}} {{poc.physician.STATE}} {{poc.physician.ZIP}}
+              </div>
+            </div>
+          </td>
+          <td class="pt-1 pr-6" width="50%">
+            <div class="text-sm text-gray-600">Attending Physician's PA/NP/CNS Signature and Date Signed</div>
+            <div class="text-[11px] mt-1">
+              <div class="h-10"></div> <!-- Empty space for signature -->
+              <hr>
+              <div>{{poc.DOCTOR}}</div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="mt-4">
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td class="pt-1 pb-4 pl-6" width="45%">
+            <div class="text-sm text-gray-600">Physician Certified Statement</div>
+            <div class="text-[11px]">
+              I certify/recertify that this patient is confined to his/her home and needs intermittent skilled nursing care, physical therapy, and/or speech therapy or continues to need occupational therapy. The patient is under my care, and I have authorized the services on this plan of care and will periodically review the plan.
+            </div>
+          </td>
+          <td class="pt-1 pb-4 pr-6" width="50%">
+            <div class="text-[11px]">
+              Anyone who misrepresents, falsifies, or conceals essential information required for payment of Federal funds may be subject to fine, imprisionment, or civil penalty under applicable Federal laws. Page one of MD signature covers all the pages related to this 485.
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div>
+  {{> medication}}
+</div>
+<div>
+  <table width="100%">
+    <thead>
+      <tr>
+        <td colspan="4" class="bg-gray-100 py-1 px-6 text-sm uppercase">Medical (Continued)</td>
+      </tr>
+    </thead>
+  </table>
+
+  <table width="100%">
+    <tbody>
+      <tr>
+        <td class="pt-1 pl-6 align-top" width="50%">
+          <hr style="width: 95%;" class="border-gray-200 mb-1">
+          <div>
+            <div class="font-medium text-sm">Functional Abilities</div>
+            <div class="text-sm text-gray-600 pt-1">Rehab potential</div>
+            <div class="text-[11px]">{{#if poc.REHAB_POTENTIAL}}{{poc.REHAB_POTENTIAL}}{{else}}Decreased safety awareness, Hearing Deficit{{/if}}</div>
+          </div>
+        </td>
+        <td class="pt-1 pr-6 align-top" width="50%">
+          <hr style="width: 95%;" class="border-gray-200 mb-1">
+          <div>
+            <div class="font-medium text-sm">Functional Limitations</div>
+            <div class="text-[11px]">{{#if poc.FUNCTIONAL_LIMITATIONS_CONTINUED}}{{poc.FUNCTIONAL_LIMITATIONS_CONTINUED}}{{/if}}</div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table width="100%">
+    <tbody>
+      <tr>
+        <td class="pt-1 pl-6 align-top" width="50%">
+          <hr style="width: 95%;" class="border-gray-200 mb-1">
+          <div>
+            <div class="font-medium text-sm">Activities Permitted</div>
+            <div class="text-[11px]">{{#if poc.ACTIVITIES_PERMITTED_CONTINUED}}{{poc.ACTIVITIES_PERMITTED_CONTINUED}}{{/if}}</div>
+          </div>
+        </td>
+        <td class="pt-1 pr-6 align-top" width="50%">
+          <hr style="width: 95%;" class="border-gray-200 mb-1">
+          <div>
+            <div class="font-medium text-sm">Hospitalization</div>
+            <div class="text-[11px]">balance issues with risk for falls, Inability to care for self independently, Unstable caregiver situation, Lacks knowledge re: self-management of disease/condition, Lacks knowledge re: treatment protocols, wound care, Condition, S/S of complications, who to report complications to, and emergency medical measures, Report to (the responsible healthcare provider) physician</div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table width="100%">
+    <tbody>
+      <tr>
+        <td class="pt-1 pl-6 align-top" width="50%">
+          <hr style="width: 95%;" class="border-gray-200 mb-1">
+          <div class="font-medium text-sm">Nutrition & allergies</div>
+          <div>
+            <div class="text-sm text-gray-600">Nutritional Requirements</div>
+            <div class="text-[11px]">{{#if poc.NUTRITIONAL_REQUIREMENTS_CONTINUED}}{{poc.NUTRITIONAL_REQUIREMENTS_CONTINUED}}{{/if}}</div>
+          </div>
+        </td>
+        <td class="pt-1 pr-6 align-top" width="50%">
+          <hr style="width: 95%;" class="border-gray-200 mb-1">
+          <div class="text-sm text-gray-600 mt-1">Allergies</div>
+          <div class="text-[11px]">{{#if poc.ALLERGIES_CONTINUED}}{{poc.ALLERGIES_CONTINUED}}{{/if}}</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table width="100%">
+    <tbody>
+      <tr>
+        <td class="pt-1 pl-6 align-top" width="50%">
+          <hr style="width: 95%;" class="border-gray-200 mb-1">
+          <div>
+            <div class="font-medium text-sm">Mental Status</div>
+            <div class="text-[11px]">{{#if poc.MENTAL_STATUS_CONTINUED}}{{poc.MENTAL_STATUS_CONTINUED}}{{/if}}</div>
+          </div>
+        </td>
+        <td class="pt-1 pr-6 align-top" width="50%">
+          <hr style="width: 95%;" class="border-gray-200 mb-1">
+          <div>
+            <div class="font-medium text-sm">Safety</div>
+            <div class="text-[11px]">Wear non-skid footwear, Fall precaution</div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <table width="100%">
+    <tbody>
+      <tr>
+        <td class="pt-1 pl-6 align-top" width="50%">
+          <hr style="width: 95%;" class="border-gray-200 mb-1">
+          <div class="font-medium text-sm">Supplies</div>              
+          <table width="100%">
+            <tbody>
+              <tr>
+                <td class="pt-1">
+                  {{#if poc.GENERAL_SUPPLIES}}
+                    <div class="text-sm text-gray-600">General supplies</div>
+                    <div class="text-[11px]">Non-sterile gauze dressings (sheets, rolls, squares, fluffs), 2x2</div>
+                  {{/if}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {{#if poc.WOUND_CARE_SUPPLIES}}
+                    <div class="text-sm text-gray-600">Wound care supplies</div>
+                    <div class="text-[11px]">Hydrogel with silver dressing, Kerlix, Sterile gauze dressings(sheets, rolls, squares, packing strips), 2x2, Wound cleanser</div>
+                  {{/if}}
+                </td>
+              </tr>
+              <tr>            
+                <td>              
+                  {{#if poc.CATHETER_SUPPLIES}}
+                    <div class="text-sm text-gray-600">Catheter supplies</div>
+                    <div class="text-[11px]">{{poc.CATHETER_SUPPLIES}}</div>
+                  {{/if}}
+                </td>
+              </tr>
+              <tr>            
+                <td>
+                  {{#if poc.OSTOMY_SUPPLIES}}
+                    <div class="text-sm text-gray-600">Ostomy supplies</div>
+                    <div class="text-[11px]">{{poc.OSTOMY_SUPPLIES}}</div>                                                      
+                  {{/if}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td class="pt-1 pr-6 align-top" width="50%">
+          <hr style="width: 95%;" class="border-gray-200 mb-1">
+          <table width="100%" class="mt-6">
+            <tbody>
+              <tr>
+                <td class="pt-1">
+                  {{#if poc.IV_SUPPLIES}}
+                    <div class="text-sm text-gray-600">IV supplies</div>
+                    <div class="text-[11px]">{{poc.IV_SUPPLIES}}</div>
+                  {{/if}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {{#if poc.DME}}
+                    <div class="text-sm text-gray-600">Durable Medical Equipment (DME)</div>
+                    <div class="text-[11px]">BiLevel Positive Airway Pressure (BIPAP) (Respiratory Therapy), Nebulizers & nebulizer medications (Respiratory Therapy), Walkers, Wheelchairs</div>
+                  {{/if}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {{#if poc.DMEPOS}}
+                    <div class="text-sm text-gray-600">Durable Medical Equipment, Prosthetics, Orthotics, and Supplies (DMEPOS)</div>
+                    <div class="text-[11px]">{{poc.DMEPOS}}</div>
+                  {{/if}}
+                </td>
+              </tr>                               
+              <tr>
+                <td>
+                  {{#if poc.DIABETES_SUPPLIES}}
+                    <div class="text-sm text-gray-600">Diabetes</div>
+                    <div class="text-[11px]">{{poc.DIABETES_SUPPLIES}}</div>
+                  {{/if}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {{#if poc.MISC_SUPPLIES}}
+                    <div class="text-sm text-gray-600">Misc.</div>
+                    <div class="text-[11px]">{{poc.MISC_SUPPLIES}}</div>   
+                  {{/if}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  <div>
+  <table class=" py-[25px] w-full">
+    <thead>
+      <tr>
+        <td colspan="4" class="bg-gray-100 py-1 px-6 text-sm uppercase">Orders for Discipline and Treatments (Frequency/Duration of Visits)</td>
+      </tr>
+    </thead>
+  </table>
+
+  <table class="w-full">
+    <tbody>
+      <tr>
+        <td class="pt-1 px-6 w-full">
+          <div class="text-sm text-gray-600">General orders</div>
+
+          <div class="text-[11px]">Notify Physician of vital sign parameters out of range: 
+            {{#if poc.NOTIFY_PHYSICIAN_P}}
+              Heart Rate: 
+              {{#if poc.NOTIFY_PHYSICIAN_P_OVER}}Greater Than (>) {{poc.NOTIFY_PHYSICIAN_P_OVER}} {{/if}}
+              {{#if poc.NOTIFY_PHYSICIAN_P_UNDER}}Less Than (<) {{poc.NOTIFY_PHYSICIAN_P_UNDER}} {{/if}}
+            {{/if}}
+
+            {{#if poc.NOTIFY_PHYSICIAN_TEMPERATURE}}
+              {{#if poc.NOTIFY_PHYSICIAN_TEMPERATURE_OVER}}Temp: Greater Than (>) {{poc.NOTIFY_PHYSICIAN_TEMPERATURE_OVER}} {{/if}}
+            {{/if}}
+
+            {{#if poc.NOTIFY_PHYSICIAN_R}}
+              Respirations: 
+              {{#if poc.NOTIFY_PHYSICIAN_R_OVER}}Greater Than (>) {{poc.NOTIFY_PHYSICIAN_R_OVER}} {{/if}}
+              {{#if poc.NOTIFY_PHYSICIAN_R_UNDER}}Less Than (<) {{poc.NOTIFY_PHYSICIAN_R_UNDER}} {{/if}}
+            {{/if}}
+
+            {{#if poc.NOTIFY_PHYSICIAN_BP_SYSTOLIC}}
+              Systolic BP: 
+              {{#if poc.NOTIFY_PHYSICIAN_BP_SYSTOLIC_OVER}}Greater Than (>) {{poc.NOTIFY_PHYSICIAN_BP_SYSTOLIC_OVER}} {{/if}}
+              {{#if poc.NOTIFY_PHYSICIAN_BP_SYSTOLIC_UNDER}}Less Than (<) {{poc.NOTIFY_PHYSICIAN_BP_SYSTOLIC_UNDER}} {{/if}}
+            {{/if}}
+
+            {{#if poc.NOTIFY_PHYSICIAN_BP_DIASTOLIC}}
+              Diastolic BP: 
+              {{#if poc.NOTIFY_PHYSICIAN_BP_DIASTOLIC_OVER}}Greater Than (>) {{poc.NOTIFY_PHYSICIAN_BP_DIASTOLIC_OVER}} {{/if}}
+              {{#if poc.NOTIFY_PHYSICIAN_BP_DIASTOLIC_UNDER}}Less Than (<) {{poc.NOTIFY_PHYSICIAN_BP_DIASTOLIC_UNDER}} {{/if}}
+            {{/if}}
+
+            {{#if poc.NOTIFY_PHYSICIAN_BLOOD_SUGAR}}
+              Blood Sugar, Fasting: 
+              {{#if poc.NOTIFY_PHYSICIAN_BLOOD_SUGAR_OVER}}Greater Than (>) {{poc.NOTIFY_PHYSICIAN_BLOOD_SUGAR_OVER}} {{/if}}
+              {{#if poc.NOTIFY_PHYSICIAN_BLOOD_SUGAR_UNDER}}Less Than (<) {{poc.NOTIFY_PHYSICIAN_BLOOD_SUGAR_UNDER}} {{/if}}
+            {{/if}}
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="pt-1 px-6 w-full">
+          <div class="text-sm text-gray-600">Frequency</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <table class="border-collapse mx-8 my-4 w-[calc(100%-4rem)]">
+    <thead>
+      <tr>
+        <td class="text-sm text-gray-600 border-b border-gray-300 w-[20%]">discipline</td>
+        <td class="text-sm text-gray-600 border-b border-gray-300 w-[80%]">plan</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="py-1 text-[11px]">SN</td>
+        <td class="py-1 text-[11px]">
+          {{#if poc.SN_REFUSED}}
+            patient refused SN visit services
+          {{else}}
+            {{poc.SN_FREQUENCY}}; 
+            {{#if poc.SN_PRN_VISITS}}
+              {{poc.SN_PRN_VISITS}} SN PRN visits in 60 days
+            {{/if}}
+          {{/if}}
+        </td>
+      </tr>
+      <tr>
+        <td class="py-1 text-[11px]">HHA</td>
+        <td class="py-1 text-[11px]">
+          {{#if poc.HHA_REFUSED}}
+            patient refused HHA visit services
+          {{else}}
+            {{poc.HHA_FREQUENCY}}
+          {{/if}}
+        </td>
+      </tr>
+      <tr>
+        <td class="py-1 text-[11px]">PT</td>
+        <td class="py-1 text-[11px]">
+          {{#if poc.PT_EVALUATE}}
+            {{#if_eq poc.PT_EVALUATE "Evaluate"}}
+              evaluate and treat {{poc.PT_FREQUENCY}}
+            {{/if_eq}}
+            {{#if_eq poc.PT_EVALUATE "Refuse"}}
+              patient refused service at this time
+            {{/if_eq}}
+          {{/if}}
+        </td>
+      </tr>
+      <tr>
+        <td class="py-1 text-[11px]">OT</td>
+        <td class="py-1 text-[11px]">
+          {{#if poc.OT_EVALUATE}}
+            {{#if_eq poc.OT_EVALUATE "Evaluate"}}
+              evaluate and treat {{poc.OT_FREQUENCY}}
+            {{/if_eq}}
+            {{#if_eq poc.OT_EVALUATE "Refuse"}}
+              patient refused service at this time
+            {{/if_eq}}
+          {{/if}}
+        </td>
+      </tr>
+      <tr>
+        <td class="py-1 text-[11px]">MSW</td>
+        <td class="py-1 text-[11px]">
+          {{#if poc.MSW_EVALUATE}}
+            {{#if_eq poc.MSW_EVALUATE "Evaluate"}}
+              evaluate and treat {{poc.MSW_FREQUENCY}}
+            {{/if_eq}}
+            {{#if_eq poc.MSW_EVALUATE "Refuse"}}
+              patient refused service at this time
+            {{/if_eq}}
+          {{/if}}
+        </td>
+      </tr>
+      <tr>
+        <td class="py-1 text-[11px]">SLP</td>
+        <td class="py-1 text-[11px]">
+          {{#if poc.ST_EVALUATE}}
+            {{#if_eq poc.ST_EVALUATE "Evaluate"}}
+              evaluate and treat {{poc.ST_FREQUENCY}}
+            {{/if_eq}}
+            {{#if_eq poc.ST_EVALUATE "Refuse"}}
+              patient refused service at this time
+            {{/if_eq}}
+          {{/if}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <table class="w-full">
+    <tbody>
+      <tr>
+        <td class="pl-6 w-1/2">
+          <div class="font-medium text-sm">SN PRN For:</div>
+          <table class="w-full">
+            <tbody>
+              <tr>
+                <td>
+                  <div class="text-[11px]">{{SNPRNReasons}}</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td class="pr-6 w-1/2">
+          <div class="font-medium text-sm">HHA Visits For:</div>
+          <table class="w-full">
+            <tbody>
+              <tr>
+                <td>
+                  <div class="text-[11px]">{{HHAReasons}}</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+  {{> order}}
+</div>
+
 </body>

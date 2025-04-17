@@ -1,0 +1,37 @@
+<div>
+  <table class="mt-4 w-full">
+    <thead>
+      <tr>
+        <td colspan="5" class="bg-gray-100 py-1 px-6 text-xs uppercase">Medications</td>
+      </tr>
+    </thead>
+  </table>
+  <table class="border-collapse mx-[2.2rem] w-[calc(100%-4.4rem)]">
+    <thead>
+      <tr>
+        <td class="border-b border-gray-300 w-[25%] py-1 text-xs">active medications</td>
+        <td class="border-b border-gray-300 w-[5%] py-1 text-xs">prn</td>
+        <td class="border-b border-gray-300 w-[15%] py-1 text-xs">start date</td>
+        <td class="border-b border-gray-300 w-[15%] py-1 text-xs">stop date</td>
+        <td class="border-b border-gray-300 w-[10%] py-1 text-xs">dose</td>
+        <td class="border-b border-gray-300 w-[10%] py-1 text-xs">freq.</td>
+        <td class="border-b border-gray-300 w-[10%] py-1 text-xs">route</td>
+        <td class="border-b border-gray-300 w-[10%] py-1 text-xs">purpose</td>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each medications}}
+        <tr>
+          <td class="py-1 text-xs">{{this.NAME}}</td>
+          <td class="py-1 text-xs">{{#if this.PRN}}yes{{else}}no{{/if}}</td>
+          <td class="py-1 text-xs">{{formatDate this.DATE_STARTED}}</td>
+          <td class="py-1 text-xs">{{formatDate this.DATE_DISC}}</td>
+          <td class="py-1 text-xs">{{this.DOSE}}</td>
+          <td class="py-1 text-xs">{{this.FREQUENCY}}</td>
+          <td class="py-1 text-xs">{{this.TAKEN}}</td>
+          <td class="py-1 text-xs">{{this.PURPOSE}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

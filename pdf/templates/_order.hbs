@@ -1,0 +1,98 @@
+<div>
+  <table class=" w-full">
+    <thead>
+      <tr>
+        <td colspan="4" class="bg-gray-100 py-1 px-6 text-xs uppercase">Orders, Goals, and Interventions</td>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each poc.poc}}
+        <tr>
+          <td class="w-[200px]">
+            <table class="px-6">
+              <thead>
+                <tr>
+                  <td class="w-[200px]">
+                    <div>
+                      <span>Order:&nbsp;</span>
+                      <span>{{this.ORDER}}</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="w-[200px]">
+                    <div>
+                      <!-- Simple check for coordinates without helpers -->
+                      {{#if this.COORDINATES}}
+                        <span class="font-bold">coordinates:&nbsp;</span>
+                        
+                        <span>{{this.COORDINATES}}</span>
+                      {{/if}}
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="w-[200px]">
+                    <div>
+                      <span>Logged:&nbsp;</span>
+                      <span>{{this.LOG_DATE}}</span>
+                    </div>
+                  </td>
+                </tr>
+              </thead>
+            </table>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+<div>
+  <table class="mt-4 w-full">
+    <thead>
+      <tr>
+        <td class="bg-gray-100 py-1 pl-6 text-xs uppercase w-[47%]">Goals</td>
+        <td class="bg-gray-100 py-1 text-xs uppercase w-[23%]">Type</td>
+        <td class="bg-gray-100 py-1 text-xs uppercase w-[30%]">Status</td>
+      </tr>
+    </thead>
+  </table>
+  <table class="border-collapse mx-[2.2rem] w-[calc(100%-4.4rem)]">
+    <tbody>
+      {{#each poc.poc}}
+        {{#each this.goals}}
+          <tr>
+            <td class="py-1 w-[50%]">{{this.GOAL}}</td>
+            <td class="py-1 w-[25%]">{{this.TYPE}}</td>
+            <td class="py-1 w-[25%]">{{#if this.STATUS}}{{this.STATUS}}{{else}}n/a{{/if}}</td>
+          </tr>
+        {{/each}}
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <table class="mt-4 w-full">
+    <thead>
+      <tr>
+        <td class="bg-gray-100 py-1 pl-6 text-xs uppercase w-[24%]">Type</td>
+        <td class="bg-gray-100 py-1 text-xs uppercase w-[46%]">Description</td>
+        <td class="bg-gray-100 py-1 text-xs uppercase w-[30%]">Discipline</td>
+      </tr>
+    </thead>
+  </table>
+  <table class="border-collapse mx-[2.2rem] w-[calc(100%-4.4rem)]">
+    <tbody>
+      {{#each poc.poc}}
+        {{#each this.teachings}}
+          <tr>
+            <td class="py-1 w-[25%]">{{this.TYPE}}</td>
+            <td class="py-1 w-[50%]">{{this.TEACHING}}</td>
+            <td class="py-1 w-[25%]">{{this.DISCIPLINE}}</td>
+          </tr>
+        {{/each}}
+      {{/each}}
+    </tbody>
+  </table>
+</div>
